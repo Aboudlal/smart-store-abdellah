@@ -24,6 +24,11 @@ ProductID,ProductName,Category,UnitPrice,StockQuantity,SupplierName
 2022,Home-Economy,Electronics,671.18,8,SmartLife
 2023,Home-Yeah,Electronics,939.54,100,SmartLife
 2024,Clothing-Paper,Home,124.27,27,TechSource
+2023,Home-Yeah,Electronics,939.54,100,SmartLife
+2024,Clothing-Paper,Home,124.27,27,TechSource
+2023,Home-Yeah,Electronics,939.54,100,SmartLife
+2024,Clothing-Paper,Home,124.27,27,TechSource
+2024,Clothing-Paper,Home,124.27,27,TechSource
 2025,Electronics-Assume,Clothing,279.62,93,SmartLife
 2026,Clothing-Use,Home,211.56,56,AudioWorld
 2027,Home-Purpose,Office,258.61,54,HomeEssentials
