@@ -239,17 +239,11 @@ SELECT * FROM sale LIMIT 10;
 
 Screenshots are stored in `docs/images/`:
 
--   `dw_customer_table.png`
--   `dw_product_table.png`
--   `dw_sale_table.png`
 
-To display in README:
-
-``` markdown
 ![Customer](docs/images/dw_customer_table.png)
 ![Product](docs/images/dw_product_table.png)
 ![Sale](docs/images/dw_sale_table.png)
-```
+
 
 ------------------------------------------------------------------------
 
