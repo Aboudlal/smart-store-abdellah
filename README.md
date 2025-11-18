@@ -276,7 +276,69 @@ git push
 
 ------------------------------------------------------------------------
 
+# ⭐ Workflow 6 -- Module 5: Business Intelligence Reporting (P5)
+
+## 🎯 Objective
+
+Analyze the Data Warehouse using Power BI and demonstrate OLAP operations.
+
+---
+
+## 1️⃣ Operating System & Tools
+
+- Windows 11
+- Power BI Desktop
+- SQLite ODBC Driver (64-bit)
+- ODBC DSN: SmartSalesDSN
+- Power Query (SQL transformations)
+
+---
+
+## 2️⃣ Power BI Model View
+
+
+![BI](docs/images/BI.png)
+---
+
+## 3️⃣ SQL Query for Top Customers
+
+```m
+let
+    Source = Odbc.Query(
+        "dsn=SmartSalesDSN",
+        "
+        SELECT c.name,
+               SUM(s.sale_amount) AS total_spent
+        FROM sale s
+        JOIN customer c ON s.customer_id = c.customer_id
+        GROUP BY c.name
+        ORDER BY total_spent DESC;
+        "
+    )
+in
+    Source
+```
+
+---
+
+## 4️⃣ OLAP Operations
+
+### 🟦 Slicing
+![Slicing](docs/images/Slicing.png)
+
+
+### 🟩 Dicing
+![Dicing](docs/images/Dicing.png)
+
+
+### 🟨 Drilldown
+![Drilldown](docs/images/Drilldown.png)
+
+
+---
+
 ## 👨‍💻 Author
 
-**Abdellah Boudlal**\
+Abdellah Boudlal  
 GitHub: https://github.com/Aboudlal
+
