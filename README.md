@@ -276,7 +276,143 @@ git push
 
 ------------------------------------------------------------------------
 
+# ⭐ Workflow 6 -- Module 5: Business Intelligence Reporting (P5)
+
+## 🎯 Objective
+
+Analyze the Data Warehouse using Power BI and demonstrate OLAP operations.
+
+---
+
+## 1️⃣ Operating System & Tools
+
+- Windows 11
+- Power BI Desktop
+- SQLite ODBC Driver (64-bit)
+- ODBC DSN: SmartSalesDSN
+- Power Query (SQL transformations)
+
+---
+
+## 2️⃣ Power BI Model View
+
+
+![BI](docs/images/BI.png)
+---
+
+## 3️⃣ SQL Query for Top Customers
+
+```m
+let
+    Source = Odbc.Query(
+        "dsn=SmartSalesDSN",
+        "
+        SELECT c.name,
+               SUM(s.sale_amount) AS total_spent
+        FROM sale s
+        JOIN customer c ON s.customer_id = c.customer_id
+        GROUP BY c.name
+        ORDER BY total_spent DESC;
+        "
+    )
+in
+    Source
+```
+
+---
+
+## 4️⃣ OLAP Operations
+
+### 🟦 Slicing
+![Slicing](docs/images/Slicing.png)
+
+
+### 🟩 Dicing
+![Dicing](docs/images/Dicing.png)
+
+
+### 🟨 Drilldown
+![Drilldown](docs/images/Drilldown.png)
+
+
+---
+
+
+
+# ⭐ Workflow 7 — Module 6: Advanced OLAP Cubing (P6) 🚀
+
+## 🎯 Objective
+
+Analyze profitability using Python and OLAP techniques on a pre-defined data cube, generating a key business visualization.
+
+---
+
+## 1️⃣ Data Preparation & Cubing
+
+This phase modifies the ETL process to create the analytical cube required for the P6 goal.
+
+| Python Files | Role |
+| :--- | :--- |
+| `cubing.py` | **Modified** to perform `sale`/`product`/`customer` joins to extract the `region` and `category` dimensions. |
+| `goal_profitability_analysis.py` | **New script** to execute the OLAP analysis and visualization. |
+
+### 🔑 Dimensions & Metric
+
+- **Dimensions:** `region`, `category`
+- **Aggregated Metric:** `sale_amount_sum` (Total Revenue)
+
+### ▶️ Run Analysis
+
+The cube must be generated before the analysis can run:
+
+```bash
+# 1. Generate the cube with the correct dimensions (using PYTHONPATH fix)
+$env:PYTHONPATH="src"; python -m analytics_project.olap.cubing
+
+# 2. Execute the OLAP analysis and generate the Heatmap
+$env:PYTHONPATH="src"; python -m analytics_project.olap.goal_profitability_analysis
+```
+
+---
+
+## 2️⃣ OLAP Analysis & Insights 💡
+
+### 🧠 OLAP Logic Implemented
+
+The analysis utilizes the cube to simulate core OLAP operations for business insight extraction.
+
+| Technique | Logic Applied | Business Role |
+| :--- | :--- | :--- |
+| **Slicing** | Filtered for a **Single Region** (e.g., `EAST`) to identify top local performers. | Determines regional stock allocation and marketing priorities. |
+| **Dicing** | Filtered for combinations of `region`/`category` below the calculated overall mean revenue. | Highlights underperforming segments requiring immediate intervention. |
+| **Drilldown (Intent)** | Documented the intent to drill from the `category` level to the `product_name` level on the lowest-performing segment. | Aims to identify if poor performance is driven by one or two specific products. |
+
+### 📊 Visualization (Heatmap)
+
+The profitability **Heatmap** (`category_region_heatmap.png`) serves as the core deliverable, clearly illustrating performance variances across dimensions.
+
+
+![Heatmap](data/olap_cubing_outputs/category_region_heatmap.png)
+---
+
+## 3️⃣ Key Results & Suggested Actions
+
+### ✅ Insights Discovered
+
+- **High Performance:** The **"Electronics"** category shows consistent high profitability across all regions.
+- **Inconsistency:** The **"Clothing"** category significantly underperforms in the **'NORTH'** region.
+- **Opportunity:** The **"Home Goods"** category is exceptionally profitable in the **'WEST'** region.
+
+### ➡️ Recommended Actions
+
+1. **Inventory Reduction:** Reduce stocking/purchasing for **'Clothing'** products in the **'NORTH'** region.
+2. **Budget Reallocation:** Increase investment and promotional budget for **"Home Goods"** in the **'WEST'** region.
+3. **Root Cause Analysis:** Execute the drilldown on 'Clothing' in 'NORTH' to identify responsible product(s).
+
+---
+
 ## 👨‍💻 Author
 
-**Abdellah Boudlal**\
+Abdellah Boudlal  
 GitHub: https://github.com/Aboudlal
+
