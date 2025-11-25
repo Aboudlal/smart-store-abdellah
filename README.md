@@ -394,20 +394,38 @@ The profitability **Heatmap** (`category_region_heatmap.png`) serves as the core
 
 ![Heatmap](data/olap_cubing_outputs/category_region_heatmap.png)
 ---
-
 ## 3️⃣ Key Results & Suggested Actions
+
+The following analysis is derived directly from the **Category Profitability by Region** heatmap.
 
 ### ✅ Insights Discovered
 
-- **High Performance:** The **"Electronics"** category shows consistent high profitability across all regions.
-- **Inconsistency:** The **"Clothing"** category significantly underperforms in the **'NORTH'** region.
-- **Opportunity:** The **"Home Goods"** category is exceptionally profitable in the **'WEST'** region.
+- **Critical Underperformer:**  
+  The **"Office"** category in the **"East"** region generates the **lowest revenue** on the entire map (**$20,426**), marking the most urgent problem area for the business.
+
+- **Top Performance (Opportunity):**  
+  The **"Home Goods"** category performs exceptionally well in both the **North** (**$99,515**) and **West** (**$81,358**) regions, identifying two strong, high-value markets with proven demand.
+
+- **Misinterpreted Strength:**  
+  The **"Clothing"** category is actually **strongest in the North region** (**$77,714**), confirming that this is a viable and profitable market—**contrary to the initial assumption** that it underperformed.
+
+---
 
 ### ➡️ Recommended Actions
 
-1. **Inventory Reduction:** Reduce stocking/purchasing for **'Clothing'** products in the **'NORTH'** region.
-2. **Budget Reallocation:** Increase investment and promotional budget for **"Home Goods"** in the **'WEST'** region.
-3. **Root Cause Analysis:** Execute the drilldown on 'Clothing' in 'NORTH' to identify responsible product(s).
+The following actions have been updated to focus on the true underperforming segment:
+
+1. **Inventory Reduction (Targeted):**  
+   Immediately **reduce stocking, purchasing, and marketing spend** for **"Office"** category products in the **"East"** region, which represents the **least profitable** segment.
+
+2. **Budget Reallocation (Growth Strategy):**  
+   **Increase investment and promotional budget** for **"Home Goods"** in the **North** and **West** regions to capitalize on the strong and consistent demand.
+
+3. **Root Cause Analysis (Drilldown):**  
+   Perform a detailed **Level 4 OLAP drilldown** on the worst-performing combination — **"Office"** in **"East"** — to determine whether the loss is caused by:
+   - a specific SKU/product,  
+   - supplier pricing issues,  
+   - or low consumer interest.
 
 ---
 
